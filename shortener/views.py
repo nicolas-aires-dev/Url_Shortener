@@ -1,3 +1,5 @@
-from django.shortcuts import render
+from rest_framework import generics
+from shortener.models import ShortLink
 
-# Create your views here.
+class ShortLinkCreateListView(generics.ListCreateAPIView):
+    queryset = ShortLink.objects.all

@@ -192,3 +192,5 @@ cython_debug/
 
 #Domain files
 domain_files/
+
+teste.py

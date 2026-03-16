@@ -6,3 +6,7 @@ from shortener.serializer import ShortLinkSerializer
 class ShortLinkCreateListView(generics.ListCreateAPIView):
     queryset = ShortLink.objects.all()
     serializer_class = ShortLinkSerializer
+
+class ShortlinkRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ShortLink.objects.all()
+    serializer_class = ShortLinkSerializer

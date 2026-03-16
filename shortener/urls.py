@@ -3,5 +3,6 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.ShortLinkCreateListView.as_view(), name='link-create-list')
+    path('', views.ShortLinkCreateListView.as_view(), name='link-create-list'),
+    path('<int:pk>/', views.ShortlinkRetrieveUpdateDestroyView.as_view(), name='link-detail-update-delete')
 ]

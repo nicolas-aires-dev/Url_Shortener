@@ -12,6 +12,7 @@ class ShortLink(models.Model):
     created_at = models.DateField(auto_now_add=True)
     expires_at = models.DateField(default=default_expiration)
     original_link = models.CharField(null=False, blank=False, max_length=200)
+    shorted_link = models.CharField(null=True, blank=True, max_length= 200)
     clicks = models.IntegerField(default=0)
 
     def __str__(self):

@@ -6,4 +6,4 @@ class ShortLinkSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ShortLink
-        fields= '__all__'
+        fields = '__all__'

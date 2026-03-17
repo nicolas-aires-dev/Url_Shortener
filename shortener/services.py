@@ -15,3 +15,12 @@ def base62_encode(data: bytes) -> str:
         encoded.append(BASE62[rem])
 
     return ''.join(reversed(encoded))
+
+
+def base62_decode(data: str) -> bytes:
+    num = 0
+    for char in data:
+        num = num * 62 + BASE62.index(char)
+    
+    length = (num.bit_length() + 7) // 8
+    return num.to_bytes(length, "big") if length > 0 else b"\x00"

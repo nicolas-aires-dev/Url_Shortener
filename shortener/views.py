@@ -31,7 +31,7 @@ class GenerateSurlView(View):
 
         # salva no objeto
         link.shorted_link = surl
-        link.expires_at = default_expiration()
+        link.surl_expires_at = default_expiration()
         link.save()
 
         return JsonResponse({"surl": surl})

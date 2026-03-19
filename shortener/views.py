@@ -1,12 +1,12 @@
-from django.views import View
-from django.http import JsonResponse
-from django.shortcuts import get_object_or_404
-from rest_framework import generics
-from shortener.services import base62_encode
-from .models import ShortLink, default_expiration
-from shortener.serializer import ShortLinkSerializer
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+from shortener.serializer import ShortLinkSerializer
+from .models import ShortLink, default_expiration
+from django.shortcuts import get_object_or_404
+from shortener.services import base62_encode
+from rest_framework import generics
+from django.http import JsonResponse
+from django.views import View
 
 
 @method_decorator(csrf_exempt, name='dispatch')

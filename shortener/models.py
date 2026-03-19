@@ -1,3 +1,6 @@
+from django.db.models.signals import post_save
+from shortener.models import ShortLink
+from django.dispatch import receiver
 from django.db import models
 from django.utils import timezone
 from datetime import timedelta
@@ -10,7 +13,8 @@ def default_expiration():
 class ShortLink(models.Model):
     link_title = models.CharField(null=False, blank=False, max_length=100)
     created_at = models.DateField(auto_now_add=True)
-    expires_at = models.DateField(default=default_expiration)
+    surl_created_at = models.DateField(null=True, blank=True)
+    surl_expires_at = models.DateField(default=default_expiration)
     original_link = models.CharField(null=False, blank=False, max_length=200)
     shorted_link = models.CharField(null=True, blank=True, max_length=200)
     clicks = models.IntegerField(default=0)

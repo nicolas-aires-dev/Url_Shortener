@@ -19,5 +19,11 @@ class ShortLink(models.Model):
     shorted_link = models.CharField(null=True, blank=True, max_length=200)
     clicks = models.IntegerField(default=0)
 
+    @receiver(post_save, sender=ShortLink)
+    def set_surl_created_at(sender, instance, created, **kwargs):
+        if created and instance.shorted_link and not instance.surl_created_at:
+            instance.surl_created_at = timezone.now().date()
+            instance.save()
+
     def __str__(self):
         return self.link_title

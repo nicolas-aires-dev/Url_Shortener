@@ -42,15 +42,16 @@ class GenerateSurlView(View):
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-def redirect_link(request, shorted_link):
-    link = get_object_or_404(ShortLink, shorted_link=shorted_link)
+class RedirectLink(View):
+    def get(self, request, shorted_link):
+        link = get_object_or_404(ShortLink, shorted_link=shorted_link)
 
-    # Update click counter
-    link.clicks += 1
-    link.save()
+        # Update click counter
+        link.clicks += 1
+        link.save()
 
-    # Verify link expiration
-    if link.surl_expires_at and timezone.now().date() > link.surl_expires_at:
-        return JsonResponse({"error": "This link is expired or doesn't exist."}, status=410)
+        # Verify link expiration
+        if link.surl_expires_at and timezone.now().date() > link.surl_expires_at:
+            return JsonResponse({"error": "This link is expired or doesn't exist."}, status=410)
 
-    return redirect(link.original_link)
+        return redirect(link.original_link)

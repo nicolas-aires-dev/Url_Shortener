@@ -15,10 +15,12 @@ class ShortLinkCreateListView(generics.ListCreateAPIView):
     queryset = ShortLink.objects.all()
     serializer_class = ShortLinkSerializer
 
+
 @method_decorator(csrf_exempt, name='dispatch')
 class ShortlinkRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = ShortLink.objects.all()
     serializer_class = ShortLinkSerializer
+
 
 @method_decorator(csrf_exempt, name='dispatch')
 class GenerateSurlView(View):
@@ -38,6 +40,7 @@ class GenerateSurlView(View):
 
         return JsonResponse({"surl": surl, "surl_expires_at": link.surl_expires_at, "surl_created_at": link.surl_created_at})
 
+
 @method_decorator(csrf_exempt, name='dispatch')
 def redirect_link(request, shorted_link):
     link = get_object_or_404(ShortLink, shorted_link=shorted_link)
@@ -51,4 +54,3 @@ def redirect_link(request, shorted_link):
         return JsonResponse({"error": "This link is expired or doesn't exist."}, status=410)
 
     return redirect(link.original_link)
-

@@ -33,7 +33,7 @@ Essa abordagem permite desacoplamento e facilita a evolução para execução em
 - Python
 - Django / Django REST Framework *(ajustar se necessário)*
 - Celery
-- sqlite3 *(ou outro banco que você estiver usando)*
+- sqlite3 *(Ajuste para o ou outro banco que você estiver usando)*
 - Docker *(planejado)*
 
 ---

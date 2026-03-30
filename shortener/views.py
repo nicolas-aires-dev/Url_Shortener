@@ -1,6 +1,7 @@
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from shortener.serializer import ShortLinkSerializer
+from shortener.tasks import update_clicks
 from .models import ShortLink, default_expiration
 from django.shortcuts import get_object_or_404, redirect
 from shortener.services import base62_encode
@@ -46,9 +47,8 @@ class RedirectLink(View):
     def get(self, request, shorted_link):
         link = get_object_or_404(ShortLink, shorted_link=shorted_link)
 
-        # Update click counter
-        link.clicks += 1
-        link.save()
+        # Trigger async task
+        update_clicks.delay(link.id)
 
         # Verify link expiration
         if link.surl_expires_at and timezone.now().date() > link.surl_expires_at:

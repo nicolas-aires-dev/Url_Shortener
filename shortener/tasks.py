@@ -2,7 +2,7 @@ from celery import shared_task
 from shortener.models import ShortLink
 
 
-@shared_task
+@shared_task(queue='light_queue')
 def update_clicks(link_id):
     link = ShortLink.objects.get(id=link_id)
     link.clicks += 1

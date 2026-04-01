@@ -1,4 +1,4 @@
-from settings.celery import shared_task
+from celery import shared_task
 from shortener.models import ShortLink
 
 

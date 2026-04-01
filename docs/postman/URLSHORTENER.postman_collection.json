@@ -1,0 +1,175 @@
+{
+  "info": {
+    "_postman_id": "ce88d6fb-89a9-41af-a45a-49d9970ff590",
+    "name": "URLSHORTENER",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "44754336"
+  },
+  "item": [
+    {
+      "name": "ShortLink",
+      "item": [
+        {
+          "name": "List Links",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{UrlShortenerLink}}/",
+              "host": [
+                "{{UrlShortenerLink}}"
+              ],
+              "path": [
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Link",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"link_title\": \"Contact me at:\",\r\n    \"original_link\": \"https://linkedin.com/in/nairesdev\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{UrlShortenerLink}}/",
+              "host": [
+                "{{UrlShortenerLink}}"
+              ],
+              "path": [
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Detail Link",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{UrlShortenerLink}}/8/",
+              "host": [
+                "{{UrlShortenerLink}}"
+              ],
+              "path": [
+                "8",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Link",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "    {\r\n        \"link_title\": \"Edit your link title\",\r\n        \"original_link\": \"https://linkedin.com/in/nairesdev\"\r\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{UrlShortenerLink}}/8/",
+              "host": [
+                "{{UrlShortenerLink}}"
+              ],
+              "path": [
+                "8",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Links",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "    {\r\n        \"link_title\": \"Edited Link Test\",\r\n        \"original_link\": \"https://runrun.it/pt-BR/edited_link\"\r\n    }"
+            },
+            "url": {
+              "raw": "{{UrlShortenerLink}}/7/",
+              "host": [
+                "{{UrlShortenerLink}}"
+              ],
+              "path": [
+                "7",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Links Options",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "OPTIONS",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{UrlShortenerLink}}/",
+              "host": [
+                "{{UrlShortenerLink}}"
+              ],
+              "path": [
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Generate Surl",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{UrlShortenerLink}}/8/generate-surl/",
+              "host": [
+                "{{UrlShortenerLink}}"
+              ],
+              "path": [
+                "8",
+                "generate-surl",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

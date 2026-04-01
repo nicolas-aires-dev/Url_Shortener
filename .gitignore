@@ -172,6 +172,7 @@ cython_debug/
 #.idea/
 
 ### VisualStudioCode ###
+.vscode/
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -194,3 +195,6 @@ cython_debug/
 domain_files/
 
 teste.py
+
+.env
+.env.*

@@ -1,21 +1,24 @@
 from pathlib import Path
+import environ
+import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = environ.Env(
+    DEBUG=(bool, False)
+)
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
+ENV_FILE = os.getenv("ENV_FILE", ".env.local")
+environ.Env.read_env(BASE_DIR / ENV_FILE)
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ojcqi3^&i90b=11as(1afpf0$@9hjc^89ewlz9@t%uw+$^yee^'
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG")
+SECRET_KEY = env("SECRET_KEY")
 
-ALLOWED_HOSTS = []
-
-
+CELERY_BROKER_URL = env("CELERY_BROKER_URL")
+CELERY_RESULT_BACKEND = env("CELERY_RESULT_BACKEND")
 # Application definition
 
 INSTALLED_APPS = [
@@ -106,6 +109,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
-CELERY_BROKER_URL = 'redis://redis:6379/0'
-CELERY_RESULT_BACKEND = 'redis://redis:6379/0'

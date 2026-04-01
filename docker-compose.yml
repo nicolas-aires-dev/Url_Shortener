@@ -3,6 +3,10 @@ version: '3'
 services:
   django:
     build: .
+    environment:
+      - ENV_FILE=.env
+    env_file:
+      - .env
     command: >
           sh -c "python manage.py migrate &&
                 python manage.py runserver 0.0.0.0:8000"
@@ -17,6 +21,8 @@ services:
     image: redis:6.2
 
   worker:
+    env_file:
+      - .env
     build: .
     command: celery -A settings worker -l info -Q light_queue
     volumes:

@@ -7,7 +7,7 @@ Este projeto foi desenvolvido para aprofundar conhecimento em:
 - Organização desacoplada de responsabilidades
 - Estrutura preparada para escalabilidade
 
-# 📦 URL Shortener API
+## 📦 URL Shortener API
 
 Serviço de encurtamento de URLs desenvolvido em **Python/Django** com foco em **boas práticas de backend**, **tarefas assíncronas (Celery + Redis)** e **teste fácil via Postman**.
 

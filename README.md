@@ -101,7 +101,7 @@ Certifique-se de que o Redis esteja rodando localmente na porta 6379.
     celery -A settings worker -l info -Q light_queue
 
 
-## 🐳 Como rodar o projeto (container)
+## 🐳 Como rodar o projeto (Docker container)
 
 > O ambiente em container utiliza automaticamente o arquivo .env.
 
@@ -114,6 +114,8 @@ Certifique-se de que o Redis esteja rodando localmente na porta 6379.
     ````bash
     DEBUG=False
     SECRET_KEY=docker-secret-key
+
+    ALLOWED_HOSTS=*
 
     CELERY_BROKER_URL=redis://redis:6379/0
     CELERY_RESULT_BACKEND=redis://redis:6379/0

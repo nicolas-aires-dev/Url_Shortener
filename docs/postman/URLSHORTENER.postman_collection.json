@@ -15,14 +15,23 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{UrlShortenerLink}}/",
+              "raw": "http://127.0.0.1:8000/api/v1/shortener/",
+              "protocol": "http",
               "host": [
-                "{{UrlShortenerLink}}"
+                "127",
+                "0",
+                "0",
+                "1"
               ],
+              "port": "8000",
               "path": [
+                "api",
+                "v1",
+                "shortener",
                 ""
               ]
-            }
+            },
+            "description": "List"
           },
           "response": []
         },
@@ -33,7 +42,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"link_title\": \"Contact me at:\",\r\n    \"original_link\": \"https://linkedin.com/in/nairesdev\"\r\n}",
+              "raw": "{\r\n    \"link_title\": \"Contact me at:\",\r\n    \"original_link\": \"https://loja.overload.com.br/angra-renascimento-livro-capa-dura\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -41,11 +50,19 @@
               }
             },
             "url": {
-              "raw": "{{UrlShortenerLink}}/",
+              "raw": "http://127.0.0.1:8000/api/v1/shortener/",
+              "protocol": "http",
               "host": [
-                "{{UrlShortenerLink}}"
+                "127",
+                "0",
+                "0",
+                "1"
               ],
+              "port": "8000",
               "path": [
+                "api",
+                "v1",
+                "shortener",
                 ""
               ]
             }
@@ -65,12 +82,20 @@
               "raw": ""
             },
             "url": {
-              "raw": "{{UrlShortenerLink}}/8/",
+              "raw": "http://127.0.0.1:8000/api/v1/shortener/1/",
+              "protocol": "http",
               "host": [
-                "{{UrlShortenerLink}}"
+                "127",
+                "0",
+                "0",
+                "1"
               ],
+              "port": "8000",
               "path": [
-                "8",
+                "api",
+                "v1",
+                "shortener",
+                "1",
                 ""
               ]
             }
@@ -92,12 +117,20 @@
               }
             },
             "url": {
-              "raw": "{{UrlShortenerLink}}/8/",
+              "raw": "http://127.0.0.1:8000/api/v1/shortener/1/",
+              "protocol": "http",
               "host": [
-                "{{UrlShortenerLink}}"
+                "127",
+                "0",
+                "0",
+                "1"
               ],
+              "port": "8000",
               "path": [
-                "8",
+                "api",
+                "v1",
+                "shortener",
+                "1",
                 ""
               ]
             }
@@ -114,12 +147,20 @@
               "raw": "    {\r\n        \"link_title\": \"Edited Link Test\",\r\n        \"original_link\": \"https://runrun.it/pt-BR/edited_link\"\r\n    }"
             },
             "url": {
-              "raw": "{{UrlShortenerLink}}/7/",
+              "raw": "http://127.0.0.1:8000/api/v1/shortener/1/",
+              "protocol": "http",
               "host": [
-                "{{UrlShortenerLink}}"
+                "127",
+                "0",
+                "0",
+                "1"
               ],
+              "port": "8000",
               "path": [
-                "7",
+                "api",
+                "v1",
+                "shortener",
+                "1",
                 ""
               ]
             }
@@ -139,12 +180,19 @@
               "raw": ""
             },
             "url": {
-              "raw": "{{UrlShortenerLink}}/",
+              "raw": "http://127.0.0.1:8000/api/v1/shortener",
+              "protocol": "http",
               "host": [
-                "{{UrlShortenerLink}}"
+                "127",
+                "0",
+                "0",
+                "1"
               ],
+              "port": "8000",
               "path": [
-                ""
+                "api",
+                "v1",
+                "shortener"
               ]
             }
           },
@@ -156,12 +204,20 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{UrlShortenerLink}}/8/generate-surl/",
+              "raw": "http://127.0.0.1:8000/api/v1/shortener/1/generate-surl/",
+              "protocol": "http",
               "host": [
-                "{{UrlShortenerLink}}"
+                "127",
+                "0",
+                "0",
+                "1"
               ],
+              "port": "8000",
               "path": [
-                "8",
+                "api",
+                "v1",
+                "shortener",
+                "1",
                 "generate-surl",
                 ""
               ]

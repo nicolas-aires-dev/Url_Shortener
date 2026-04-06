@@ -1,30 +1,31 @@
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
-from shortener.serializer import ShortLinkSerializer
-from shortener.tasks import update_clicks
-from .models import ShortLink, default_expiration
 from django.shortcuts import get_object_or_404, redirect
+from settings.permissions import GlobalDefaultPermission
+from rest_framework.permissions import IsAuthenticated
+from shortener.serializer import ShortLinkSerializer
+from .models import ShortLink, default_expiration
 from shortener.services import base62_encode
-from django.utils import timezone
-from rest_framework import generics
+from shortener.tasks import update_clicks
 from django.http import JsonResponse
+from rest_framework import generics
+from django.utils import timezone
 from django.views import View
 
 
-@method_decorator(csrf_exempt, name='dispatch')
 class ShortLinkCreateListView(generics.ListCreateAPIView):
+    permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = ShortLink.objects.all()
     serializer_class = ShortLinkSerializer
 
 
-@method_decorator(csrf_exempt, name='dispatch')
 class ShortlinkRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = ShortLink.objects.all()
     serializer_class = ShortLinkSerializer
 
 
-@method_decorator(csrf_exempt, name='dispatch')
 class GenerateSurlView(View):
+    permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
+
     def get(self, request, pk):
         # selects object by ID
         link = get_object_or_404(ShortLink, pk=pk)
@@ -42,8 +43,9 @@ class GenerateSurlView(View):
         return JsonResponse({"surl": surl, "surl_expires_at": link.surl_expires_at, "surl_created_at": link.surl_created_at})
 
 
-@method_decorator(csrf_exempt, name='dispatch')
 class RedirectLink(View):
+    permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
+
     def get(self, request, shorted_link):
         link = get_object_or_404(ShortLink, shorted_link=shorted_link)
 

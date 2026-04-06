@@ -7,4 +7,7 @@ urlpatterns = [
 
     # Apps
     path('api/v1/shortener/', include('shortener.urls')),
+
+    # Authentications
+    path('api/v1/auth/', include('authentication.urls'))
 ]

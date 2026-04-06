@@ -147,17 +147,20 @@ Você pode testar a API usando a coleção do Postman incluída na pasta docs/po
 
 ## 🛡️ Autenticação e Segurança (em breve)
 
-Ainda não há autenticação implementada, mas está nos planos:
+O projeto conta com autenticação via JWT (JSON Web Tokens) para proteger os endpoints.
 
-- ✅ JWT (JSON Web Tokens) para proteger endpoints
-- 🔐 Controle de acesso baseado em usuário
+- 🔑 Usuários podem gerar tokens JWT para realizar requisições autenticadas (Bearer Token).
 
-Se quiser contribuir com isso, fique à vontade! 🙌
+- ⚙️ Permissões são gerenciadas pelo Django Admin:
+    - É necessário configurar permissões específicas no Django Admin para os usuários para que consigam realizar requisições.
 
-## 🚧 Melhorias Futuras
+- 📬 A coleção do Postman disponível em docs/postman já inclui os endpoints de autenticação:
+    - Obter tokens de acesso e refresh
+    - Refresh token (renovar o token de acesso)
+    - Verify token (validar se o token ainda é válido)
+
+## 🚧 Possíveis Melhorias
 - ✅ Integrar Redis como mensagem broker principal
-- 📦 Dockerizar a aplicação para ambiente de desenvolvimento/produção
-- 🔑 Adicionar autenticação JWT
 - 📊 Monitoramento de tarefas Celery
 - 📈 Suporte multi-worker para alta carga
     

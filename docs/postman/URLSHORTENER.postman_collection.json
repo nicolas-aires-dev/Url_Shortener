@@ -51,7 +51,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"link_title\": \"Contact me at:\",\r\n    \"original_link\": \"https://loja.overload.com.br/angra-renascimento-livro-capa-dura\"\r\n}",
+              "raw": "{\r\n    \"link_title\": \"Contact me at:\",\r\n    \"original_link\": \"https://linkedin.com/in/nairesdev\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -153,7 +153,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "    {\r\n        \"link_title\": \"Edited Link Test\",\r\n        \"original_link\": \"https://runrun.it/pt-BR/edited_link\"\r\n    }"
+              "raw": ""
             },
             "url": {
               "raw": "http://127.0.0.1:8000/api/v1/shortener/1/",
